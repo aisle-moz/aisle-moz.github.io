@@ -49,7 +49,7 @@ function showBugs() {
         function(node) {return node.nodeType === Node.COMMENT_NODE;}
     )[0].data;
     initiatives.forEach(function(bug) {
-        var head = bug.summary.replace(/\[Tracker\]\s*/, '');
+        var summary = bug.summary.replace(/\[Tracker\]\s*/, '');
         var body = '<div class="story">' + bug.cf_user_story + '</div>';
         body += '<table class="table">';
         var total = 0, resolved = 0;
@@ -63,12 +63,13 @@ function showBugs() {
                 + bugs[bug_id].status + '</td><td>'
                 + bugs[bug_id].summary + '</td></tr>';
         });
-        head += ' (' + resolved + '/' + total + ')';
+        var status = ' (' + resolved + '/' + total + ')';
         body += '</table>';
         var html = template
             .replace(/{{ID}}/g, bug.id)
             .replace(/{{TARGET}}/g, bug.id + "-body")
-            .replace(/{{HEAD}}/g, head)
+            .replace(/{{SUMMARY}}/g, summary)
+            .replace(/{{STATUS}}/g, status)
             .replace(/{{BODY}}/g, body);
         $(html).appendTo("#initiatives");
     });

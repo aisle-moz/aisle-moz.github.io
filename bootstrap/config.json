@@ -377,6 +377,7 @@
     "@hr-border": "@gray-lighter"
   },
   "css": [
+    "grid.less",
     "progress-bars.less",
     "panels.less",
     "component-animations.less",
@@ -388,5 +389,5 @@
     "collapse.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=ee03949bc8190dfa49e4"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=d39b8f2e6affa13ae9ec"
 }
